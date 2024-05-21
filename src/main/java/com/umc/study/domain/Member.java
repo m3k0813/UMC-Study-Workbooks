@@ -25,10 +25,13 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "VARCHAR(20)")
     private String name;
 
+    @Column(columnDefinition = "VARCHAR(255)")
     private String address;
 
+    @Column(columnDefinition = "VARCHAR(255)")
     private String specAddress;
 
     @Enumerated(EnumType.STRING)
@@ -42,10 +45,13 @@ public class Member extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
+    @Column(columnDefinition = "DATE")
     private LocalDate inactiveDate;
 
+    @Column(columnDefinition = "VARCHAR(50)")
     private String email;
 
+    @Column(columnDefinition = "int")
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

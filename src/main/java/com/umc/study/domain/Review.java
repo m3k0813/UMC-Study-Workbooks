@@ -14,8 +14,10 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "varchar(100)", nullable = false)
     private String title;
 
+    @Column(columnDefinition = "float", nullable = false)
     private Float score;
 
     @ManyToOne

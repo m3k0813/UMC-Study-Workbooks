@@ -18,10 +18,13 @@ public class Terms {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "varchar(50)", nullable = false)
     private String title;
 
+    @Column(columnDefinition = "text", nullable = false)
     private String body;
 
+    @Column(columnDefinition = "boolean", nullable = false)
     private Boolean optional;
 
     @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
