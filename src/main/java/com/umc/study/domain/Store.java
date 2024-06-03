@@ -1,9 +1,6 @@
-package com.umc.study.domain.enums;
+package com.umc.study.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -22,4 +19,8 @@ public class Store {
     private String address;
 
     private Float score;
+
+    @ManyToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
 }

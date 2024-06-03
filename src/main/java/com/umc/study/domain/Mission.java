@@ -2,7 +2,6 @@ package com.umc.study.domain;
 
 import com.umc.study.domain.Mapping.MemberMission;
 import com.umc.study.domain.common.BaseEntity;
-import com.umc.study.domain.enums.Store;
 import jakarta.persistence.*;
 import lombok.*;
 
