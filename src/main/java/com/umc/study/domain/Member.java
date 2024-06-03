@@ -9,6 +9,9 @@ import com.umc.study.domain.enums.MemberStatus;
 import com.umc.study.domain.enums.SocialType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,6 +19,8 @@ import java.util.List;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -25,13 +30,13 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "VARCHAR(20)")
+    @Column(nullable = false, length = 20)
     private String name;
 
-    @Column(columnDefinition = "VARCHAR(255)")
+    @Column(nullable = false, length = 40)
     private String address;
 
-    @Column(columnDefinition = "VARCHAR(255)")
+    @Column(nullable = false, length = 40)
     private String specAddress;
 
     @Enumerated(EnumType.STRING)
@@ -45,13 +50,12 @@ public class Member extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
-    @Column(columnDefinition = "DATE")
     private LocalDate inactiveDate;
 
-    @Column(columnDefinition = "VARCHAR(50)")
+    //    @Column(nullable = false, length = 50)
     private String email;
 
-    @Column(columnDefinition = "int")
+    @ColumnDefault("0")
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

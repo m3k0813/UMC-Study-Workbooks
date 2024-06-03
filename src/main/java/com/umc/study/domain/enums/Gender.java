@@ -1,5 +1,5 @@
 package com.umc.study.domain.enums;
 
 public enum Gender {
-    FEMAILE, MALE
+    FEMALE, MALE, NONE
 }
