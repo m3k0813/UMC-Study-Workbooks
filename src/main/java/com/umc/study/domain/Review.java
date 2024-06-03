@@ -17,6 +17,9 @@ public class Review {
     @Column(columnDefinition = "varchar(100)", nullable = false)
     private String title;
 
+    @Column(columnDefinition = "varchar(255)", nullable = false)
+    private String content;
+
     @Column(columnDefinition = "float", nullable = false)
     private Float score;
 
@@ -27,4 +30,6 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "review_image_id")
     private ReviewImage reviewImage;
+
+
 }
